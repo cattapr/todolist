@@ -80,7 +80,7 @@ require 'todo.php';
 				<td></td>
 				<td class="task"><p><?= $complete['title']; ?></p></td>
 				<td class="delete">
-					<a href="index.php?delete_task=<?php echo $todo['id']; ?>">Delete</a>
+					<a href="index.php?delete_task=<?php echo $complete['id']; ?>">Delete</a>
 				</td>
 		</tr>
 		<?php } ?>
@@ -93,6 +93,10 @@ require 'todo.php';
 </div> <!--completedlist-->
 
 </div> <!--wrapper-->
+
+<footer>
+ <a href="https://github.com/cattapr/todolist">My github</a>
+ </footer>
 </body>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

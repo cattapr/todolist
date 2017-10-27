@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
 }
 }
 
-$tasks = $pdo->prepare("SELECT * FROM todo WHERE completed = 0 ORDER BY title DESC");
+$tasks = $pdo->prepare("SELECT * FROM todo WHERE completed = 0");
 $tasks ->execute();
 $todolist = $tasks -> fetchALL(PDO::FETCH_ASSOC);
 
@@ -36,6 +36,6 @@ if(isset($_GET['mark_complete'])) {
 	header('location: index.php');
 }
 
-$completed = $pdo->prepare("SELECT * FROM todo WHERE completed = 1 ORDER BY completed DESC");
+$completed = $pdo->prepare("SELECT * FROM todo WHERE completed = 1");
 $completed ->execute();
 $completedlist = $completed -> fetchALL(PDO::FETCH_ASSOC);
