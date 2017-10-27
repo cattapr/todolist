@@ -1,8 +1,6 @@
 <?php
 require 'database.php';
-
-require 'todo.php';
-
+require 'todo.php'; 
 
 ?>
 
@@ -18,80 +16,79 @@ require 'todo.php';
 
 
 </head>
-<body>
 
-	<div class="wrapper">
-		<div class="container">
-			<div class="row">
-			<div class="col-md-6">
+<body>
+<div class="wrapper">
+	<div class="container">
+	<div class="row">
+	<div class="col-md-6">
 		<div class="heading">
 		<h2>My Todo List</h2>
-	</div>
+		</div>
 
 
-	<form action="index.php" method="POST">
-		<p><?php echo $add_task ?></p>
-		<input type="text" name="title" class="task_input">
-		<button type="submit" class="add_btn" name="submit">Add Task</button>
+<form action="index.php" method="POST">
+	<p><?php echo $add_task ?></p>
+	<input type="text" name="title" class="task_input">
+	<button type="submit" class="add_btn" name="submit">Add Task</button>
+</form>
 
-	</form>
-
-	<table>
-		<thead>
-			<tr>
-				<th> </th>
-				<th>Things to do</th>
-				<th>Action</th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<?php foreach ($todolist as $todo) {
-			 ?>
-			<tr>
-				<td></td>
-				<td class="task"><p><?= $todo['title']; ?></p></td>
-				<td>
-
-					<a href="index.php?mark_complete=<?php echo $todo['id']; ?>">Mark as done</a>
-
-			
-</td>
-				<td class="delete">
-					<a href="index.php?delete_task=<?php echo $todo['id']; ?>">Delete</a>
-				</td>
-			</tr>
-			<?php } ?>
-		</tbody>
-</table>
-</div>
-
-<div class="col-md-6">	
-<div class="heading">
-		<h2>Completed List</h2>
-	</div>
-
-		<table>
-		<tbody>
-			
-			<?php foreach ($completedlist as $complete) {
-			 ?>
-			<tr>
-				<td></td>
-				<td class="task"><p><?= $complete['title']; ?></p></td>
-				<td class="delete">
-					<a href="index.php?delete_task=<?php echo $complete['id']; ?>">Delete</a>
-				</td>
+<table>
+	<thead>
+		<tr>
+			<th> </th>
+			<th>Things to do</th>
+			<th>Action</th>
 		</tr>
-		<?php } ?>
+	</thead>
 
+	<tbody>
+	<?php foreach ($todolist as $todo) {
+	 ?>
+		<tr>
+			<td></td>
+			<td class="task"><p><?= $todo['title']; ?></p></td>
+			<td>
+				<a href="index.php?mark_complete=<?php echo $todo['id']; ?>">Mark as done</a>
+			</td>
+			<td class="delete">
+				<a href="index.php?delete_task=<?php echo $todo['id']; ?>">Delete</a>
+			</td>
+		</tr>
+	
+	<?php } ?> <!--stänger foreach-->
 
 	</tbody>
-</table>
-</div>
-</div>
-</div> <!--completedlist-->
 
+</table>
+
+</div> <!--stänger col-md-6-->
+
+<div class="col-md-6">	
+	<div class="heading">
+	<h2>Completed List</h2>
+	</div>
+
+	<table>
+		<tbody>
+			<?php foreach ($completedlist as $complete) {
+			 ?>
+		<tr>
+			<td></td>
+			<td class="task"><p><?= $complete['title']; ?></p></td>
+			<td class="delete">
+				<a href="index.php?delete_task=<?php echo $complete['id']; ?>">Delete</a>
+			</td>
+		</tr>
+		
+		<?php } ?> <!--stänger foreach loop-->
+
+		</tbody>
+	</table>
+
+</div><!--stänger col-md-6-->
+</div><!--row-->
+</div> <!--container-->
 </div> <!--wrapper-->
 
 <footer>

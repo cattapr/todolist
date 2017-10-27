@@ -1,5 +1,5 @@
 <?php 
-
+/*task inputfield*/
 $add_task = "";
 
 if (isset($_POST['submit'])) {
@@ -17,10 +17,13 @@ if (isset($_POST['submit'])) {
 }
 }
 
+/*all the todos listed*/
 $tasks = $pdo->prepare("SELECT * FROM todo WHERE completed = 0");
 $tasks ->execute();
 $todolist = $tasks -> fetchALL(PDO::FETCH_ASSOC);
 
+
+/*delete button*/
 if(isset($_GET['delete_task'])) {
 		$id = $_GET['delete_task'];
 		$delete = $pdo->prepare("DELETE FROM todo WHERE id = :id");
@@ -28,7 +31,7 @@ if(isset($_GET['delete_task'])) {
 		header('location: index.php');
 }
 
-
+/*mark done button*/
 if(isset($_GET['mark_complete'])) {
 	$id = $_GET['mark_complete'];
 	$complete = $pdo-> prepare("UPDATE todo SET completed = 1 WHERE id = :id");
@@ -36,6 +39,7 @@ if(isset($_GET['mark_complete'])) {
 	header('location: index.php');
 }
 
+/*completed list*/
 $completed = $pdo->prepare("SELECT * FROM todo WHERE completed = 1");
 $completed ->execute();
 $completedlist = $completed -> fetchALL(PDO::FETCH_ASSOC);
