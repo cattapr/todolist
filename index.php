@@ -1,6 +1,6 @@
 <?php
-require 'database.php';
-require 'todo.php'; 
+require 'database.php'; 
+require 'todo.php';
 
 ?>
 
